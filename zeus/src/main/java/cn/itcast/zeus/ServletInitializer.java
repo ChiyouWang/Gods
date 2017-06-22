@@ -1,5 +1,6 @@
 package cn.itcast.zeus;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
