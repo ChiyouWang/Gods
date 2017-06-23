@@ -1,5 +1,6 @@
 package cn.itcast.zeus.dao.Repository.impl;
 
+import cn.itcast.common.Exception.HelperException;
 import cn.itcast.zeus.dao.Repository.DemoRepository;
 import cn.itcast.zeus.dao.entity.Demo;
 import cn.itcast.zeus.dao.entity.DemoExample;
@@ -33,5 +34,15 @@ public class DemoRepositoryImpl implements DemoRepository{
     @Override
     public Demo selectDemoById(Integer id) {
         return demoMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public Demo update(Demo demo) throws HelperException{
+        int rel = demoMapper.updateByPrimaryKeySelective(demo);
+        if(rel == 1){
+            return demo;
+        }else{
+            throw new HelperException("Demo 更新异常");
+        }
     }
 }

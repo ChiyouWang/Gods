@@ -4,6 +4,8 @@ import cn.itcast.common.Exception.HelperException;
 import cn.itcast.common.controller.BaseController;
 import cn.itcast.zeus.dao.entity.Demo;
 import cn.itcast.zeus.service.DemoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,8 @@ public class DemoController extends BaseController{
     /**
      * 测试基础构建
      */
+
+    private Logger logger =  LoggerFactory.getLogger(DemoController.class);
 
     @Autowired
     DemoService demoService;
@@ -68,5 +72,31 @@ public class DemoController extends BaseController{
             return fail(e.getMessage());
         }
     }
+
+    /**
+     * 测试：  log打印
+     * @return
+     */
+    @RequestMapping(value = "/log")
+    public Map<String, Object> log() {
+        logger.warn("============>>>>>>  测试log打印 tom<<<<<< ========= ");
+        return success();
+    }
+
+    /**
+     * 事务测试
+     * @return
+     */
+    @RequestMapping(value = "/tra")
+    public Map<String, Object> tra() {
+        try{
+            demoService.testTra();
+            return success();
+        }catch(HelperException e){
+            return fail(e.getMessage());
+        }
+    }
+
+
 
 }

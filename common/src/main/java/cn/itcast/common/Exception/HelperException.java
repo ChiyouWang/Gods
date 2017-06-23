@@ -3,7 +3,7 @@ package cn.itcast.common.Exception;
 /**
  * Created by tmh0214 on 17/6/22.
  */
-public class HelperException extends Throwable {
+public class HelperException extends Exception {
 
     /**
      * 自定义 异常类
@@ -43,4 +43,5 @@ public class HelperException extends Throwable {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }
