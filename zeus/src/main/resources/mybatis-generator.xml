@@ -10,12 +10,6 @@
             <property name="suppressAllComments" value="true"/>
 
         </commentGenerator>
-        <!--数据库链接地址账号密码  pord-->
-        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
-                        <!--connectionURL="jdbc:mysql://172.16.1.71:3306/zeus"-->
-                        <!--userId="tmh0214"-->
-                        <!--password="asd2696565">-->
-        <!--</jdbcConnection>-->
 
         <!--数据库链接地址账号密码  tom-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
